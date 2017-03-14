@@ -37,6 +37,6 @@ Implement Filtering, with three options:
 
 ## Rubric *20pts*
 - Redux correctly implemented (functionality correct) *7pts*
-_ Redux idomatic organization and use *6pts*
+- Redux idomatic organization and use *6pts*
 - React Todo App *5pts*
 - Idomatic Html, CSS *2pts*
