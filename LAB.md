@@ -3,10 +3,9 @@
 
 Create a react todo app that uses redux for state management. 
 
-![image](https://cloud.githubusercontent.com/assets/478864/23924163/ce6df034-08c6-11e7-8458-506d5a60501c.png)
+![image](https://cloud.githubusercontent.com/assets/478864/23924199/f32ceb8c-08c6-11e7-8e82-8b56fe196254.png)
 
-You do not need to use a server, though you are welcome to.
-Usually helful to keep local storage up to date so the list survives a browser refresh. 
+You do not need to use a server, though you are welcome to. Usually helful to keep local storage up to date so the list survives a browser refresh. 
 
 ## TODO List
 
