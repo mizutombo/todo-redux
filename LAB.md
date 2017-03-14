@@ -1,7 +1,11 @@
 <img src="https://cloud.githubusercontent.com/assets/478864/22186847/68223ce6-e0b1-11e6-8a62-0e3edc96725e.png" width=30> Todo App with Redux
 ===
 
-Create a react todo app that uses redux for state management. You do not need to use a server, though you are welcome to.
+Create a react todo app that uses redux for state management. 
+
+![image](https://cloud.githubusercontent.com/assets/478864/23924163/ce6df034-08c6-11e7-8458-506d5a60501c.png)
+
+You do not need to use a server, though you are welcome to.
 Usually helful to keep local storage up to date so the list survives a browser refresh. 
 
 ## TODO List
