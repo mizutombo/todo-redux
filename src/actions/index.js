@@ -15,10 +15,11 @@ export const deleteTodo = (id) => {
   };
 };
 
-export const editTodo = (id) => {
+export const editTodo = (id, text) => {
   return {
     type: 'EDIT_TODO',
-    id
+    id,
+    text
   };
 };
 
