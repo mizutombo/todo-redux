@@ -1,15 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { ListBuilder } from 'react-redux';
+import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import todoApp from './reducers';
 import App from './components/App';
 
-let reduxStore = createStore(todoApp);
+let store = createStore(todoApp);
 
 render(
-  <ListBuilder reduxStore={reduxStore}>
+  <Provider store={store}>
     <App />
-  </ListBuilder>,
+  </Provider>,
   document.getElementById('root')
 );
