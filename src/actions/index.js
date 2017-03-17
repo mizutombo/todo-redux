@@ -23,19 +23,21 @@ export const editTodo = (id, text) => {
   };
 };
 
-export const setVisibilityFilter = (filter) => {
+export const completeTodo = (id) => {
   return {
-    type: 'SET_VISIBILITY_FILTER',
-    filter
-  };
-};
-
-export const toggleTodo = (id) => {
-  return {
-    type: 'TOGGLE_TODO',
+    type: 'COMPLETE_TODO',
     id
   };
 };
 
+export const completeAll = () => {
+  return {
+    type: 'COMPLETE_ALL',
+  };
+};
 
-
+export const clearCompleted = () => {
+  return {
+    type: 'CLEAR_COMPLETED',
+  }
+};
