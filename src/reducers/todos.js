@@ -1,68 +1,71 @@
-const todo = (state = {}, action) => {
-  
-  switch (action.type) {
+// build reducer to control state changes ...
 
-    case 'ADD_TODO':
-      return {
-        id: action.id,
-        text: action.text,
-        completed: false
-      };
-    case 'DELETE_TODO':
-      return {
-        id: action.id,
-        completed: false
-      };
-    case 'EDIT_TODO':
-      return {
-        id: action.id,
-        text: action.text,
-        completed: false
-      };
-    case 'TOGGLE_TODO':
-      if (state.id !== action.id) {
-        return state;
-      }
-      return Object.assign({}, state, {
-        completed: !state.completed
-      });
-    default:
-      return state;
+import {
+  addTodo,
+  deleteTodo,
+  editTodo,
+  completeTodo,
+  completeAll,
+  clearCompleted
+} from '../actions/actionTypes';
 
+const ADD_TODO = addTodo;
+const DELETE_TODO = deleteTodo;
+const EDIT_TODO = editTodo;
+const COMPLETE_TODO = completeTodo;
+const COMPLETE_ALL = completeAll;
+const CLEAR_COMPLETED = clearCompleted;
+
+const initialState = [
+  {
+    text: 'ToDo App with React & Redux',
+    completed: false,
+    id: 0
   }
+];
 
-};
+export default function todoList(state = initialState, action) {
 
-const todos = (state = [], action) => {
-  
   switch (action.type) {
 
-    case 'ADD_TODO':
+    case ADD_TODO:
       return [
-        ...state,
-        todo(undefined, action)
+        {
+          id: state.reduce( (maxId, todo) => 
+            Math.max(todo.id, maxId), -1 ) + 1,
+          text: action.text,
+          completed: false
+        },
+        ...state
       ];
-    case 'DELETE_TODO':
-      return [
-        ...state,
-        todo(id, action)
-      ];
-    case 'EDIT_TODO':
-      return [
-        ...state,
-        todo(id, action)
-      ];
-    case 'TOGGLE_TODO':
-      return state.map(todos =>
-        todo(todos, action)
+
+    case DELETE_TODO:
+      return state.filter(todo => todo.id !== action.id
       );
+
+    case EDIT_TODO:
+      return state.map(todo =>
+        todo.id === action.id ? { ...todo, text: action.text } : todo
+      );
+
+    case COMPLETE_TODO:
+      return state.map(todo => 
+        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+      );
+
+    case COMPLETE_ALL:
+      const allCompleted = state.every(todo => todo.completed);
+      return state.map(todo => ({
+        ...todo,
+        completed: !allCompleted
+      }));
+
+    case CLEAR_COMPLETED:
+      return state.filter(todo => todo.completed === false);
+
     default:
       return state;
 
   }
 
 };
-
-
-
-export default todos;
