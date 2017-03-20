@@ -31,7 +31,7 @@ function TodoItem(props) {
       }}> done </button> 
     </li>
   );
-};
+}
 
 export default connect(mapDispatchToProps)(TodoItem);
 
