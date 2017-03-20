@@ -20,5 +20,5 @@ function TodoList(props) {
 export default connect(mapStateToProps)(TodoList);
 
 TodoList.propTypes = {
-  todos: PropTypes.object.isRequired, 
+  todos: PropTypes.array.isRequired, 
 };
