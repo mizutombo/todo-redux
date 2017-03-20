@@ -27,7 +27,7 @@ class AddTodo extends Component {
   }
 }
 
-export default connect(mapDispatchToProps)(addTodo);
+export default connect(mapDispatchToProps)(AddTodo);
 
 AddTodo.propTypes = {
   onAdd: PropTypes.func.isRequired,
