@@ -1,7 +1,9 @@
 {
-  "name": "image-gallery-1",
+  "name": "todo-redux",
   "version": "0.1.0",
+  "description": "todo list app",
   "private": true,
+  "main": "index.js",
   "dependencies": {
     "body-parser": "^1.17.1",
     "classnames": "^2.2.5",
