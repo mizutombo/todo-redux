@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { deleteTodo, editTodo, completeTodo } from '../actions/actionTypes';
+import { deleteTodo, editTodo, completeTodo } from '../actions/actions';
 import { connect } from 'react-redux';
 
 const mapDispatchToProps = (dispatch) => { 
@@ -7,9 +7,11 @@ const mapDispatchToProps = (dispatch) => {
     onDelete(todoId) {
       dispatch(deleteTodo(todoId));
     },
+
     onEdit(todo) {
       dispatch(editTodo(todo));
     },
+    
     onComplete(todo) {
       dispatch(completeTodo(todo));
     }
@@ -40,3 +42,12 @@ TodoItem.propTypes = {
   onDelete: PropTypes.func.isRequired,
   onComplete: PropTypes.func.isRequired,
 };
+
+/*const TodoItem = ({ onClick, completed, text}) => (
+  <li
+    onClick={onClick}
+    style={{
+      textDecoration: completed ? 'line-through' : 'none'
+    }}>
+    {text}
+)*/

@@ -7,14 +7,7 @@ import {
   completeTodo,
   completeAll,
   clearCompleted
-} from '../actions/actionTypes';
-
-const ADD_TODO = addTodo;
-const DELETE_TODO = deleteTodo;
-const EDIT_TODO = editTodo;
-const COMPLETE_TODO = completeTodo;
-const COMPLETE_ALL = completeAll;
-const CLEAR_COMPLETED = clearCompleted;
+} from '../actions/actions';
 
 const initialState = [
   {
@@ -28,39 +21,38 @@ export default function todoList(state = initialState, action) {
 
   switch (action.type) {
 
-    case ADD_TODO:
+    case 'ADD_TODO':
       return [
         {
-          id: state.reduce( (maxId, todo) => 
-            Math.max(todo.id, maxId), -1 ) + 1,
+          id: Date.now(),
           text: action.text,
           completed: false
         },
         ...state
       ];
 
-    case DELETE_TODO:
+    case 'DELETE_TODO':
       return state.filter(todo => todo.id !== action.id
       );
 
-    case EDIT_TODO:
+    case 'EDIT_TODO':
       return state.map(todo =>
         todo.id === action.id ? { ...todo, text: action.text } : todo
       );
 
-    case COMPLETE_TODO:
+    case 'COMPLETE_TODO':
       return state.map(todo => 
         todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
       );
 
-    case COMPLETE_ALL:
+    case 'COMPLETE_ALL':
       const allCompleted = state.every(todo => todo.completed);
       return state.map(todo => ({
         ...todo,
         completed: !allCompleted
       }));
 
-    case CLEAR_COMPLETED:
+    case 'CLEAR_COMPLETED':
       return state.filter(todo => todo.completed === false);
 
     default:
